@@ -14,13 +14,14 @@ public class AutomationController {
     private final NotificationService notificationService;
 
     @Autowired
-    public RegistrationController(NotificationService notificationService) {
+    public AutomationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
 
-    @PostMapping("/confirm")
+    @PostMapping("/automation")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Map<String, String> handleRegistrationRequests(@RequestBody DeviceDetails deviceDetails) {
-        System.out.println("User Details received at Registration Controller: " + deviceDetails);
+        System.out.println("Device Details received at Registration Controller: " + deviceDetails);
         return notificationService.noti(deviceDetails);
+    }
 }
